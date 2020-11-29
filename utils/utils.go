@@ -32,8 +32,8 @@ func CreateArchives(data []model.Question, fileName string) {
 
 func CreateList(data []model.Question) string {
 	var word string
-	for k,v := range data {
-		word += fmt.Sprintf("%v.[%v](%v) \n", k+1, v.Title, v.Url)
+	for _,v := range data {
+		word += fmt.Sprintf("1. [%v](%v) \n", v.Title, v.Url)
 	}
 	template := fmt.Sprintf("<!-- BEGIN -->\n%v<!-- END -->",word)
 	fmt.Println(template)
