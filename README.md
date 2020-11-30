@@ -1,4 +1,7 @@
 # 知乎热榜
+[![Build Status](https://github.com/ToWeLong/zhihu-hot-questions/workflows/CI/badge.svg)](https://github.com/ToWeLong/zhihu-hot-questions/actions)
+[![GitHub language](https://img.shields.io/badge/language-golang-orange.svg)](https://golang.org/)
+[![GitHub license](https://img.shields.io/github/license/ToWeLong/zhihu-hot-questions)](https://github.com/ToWeLong/zhihu-hot-questions/blob/main/LICENSE)
 
 知乎热门话题，记录从 2020-11-29 日开始的知乎热门话题。每小时抓取一次数据，按天[归档](./archives)
 
