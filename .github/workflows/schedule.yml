@@ -22,8 +22,8 @@ jobs:
         id: go
 
       - name: download module
-          run: |
-            go mod download
+        run: |
+          go mod download
 
       - name: Run Go App
         run: |
