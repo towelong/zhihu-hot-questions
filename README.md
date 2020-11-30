@@ -62,4 +62,4 @@
 
 ### License
 
-[zhihu-trending-hot-questions](https://github.com/towelong/zhihu-hot-questions) 的源码使用 MIT License 发布。具体内容请查看 [LICENSE](./LICENSE) 文件布。具体内容请查看 [LICENSE](./LICENSE) 文件
+[zhihu-hot-questions](https://github.com/towelong/zhihu-hot-questions) 的源码使用 MIT License 发布。具体内容请查看 [LICENSE](./LICENSE) 文件布。具体内容请查看 [LICENSE](./LICENSE) 文件
