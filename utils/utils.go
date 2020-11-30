@@ -13,8 +13,7 @@ func CreateReadMe(data []model.Question) {
 	if file, err := ioutil.ReadFile(fileName); err == nil {
 		reg, _ := regexp.Compile(`<!-- BEGIN -->[\W\w]*<!-- END -->`)
 		allString := reg.ReplaceAllString(string(file), CreateList(data))
-		fmt.Println(allString)
-		if writeFile, err := os.OpenFile(fileName,os.O_CREATE|os.O_WRONLY,os.ModePerm);err == nil {
+		if writeFile, err := os.OpenFile(fileName, os.O_CREATE|os.O_WRONLY, os.ModePerm); err == nil {
 			defer writeFile.Close()
 			writeFile.WriteString(allString)
 		}
@@ -32,10 +31,9 @@ func CreateArchives(data []model.Question, fileName string) {
 
 func CreateList(data []model.Question) string {
 	var word string
-	for _,v := range data {
+	for _, v := range data {
 		word += fmt.Sprintf("1. [%v](%v) \n", v.Title, v.Url)
 	}
-	template := fmt.Sprintf("<!-- BEGIN -->\n%v<!-- END -->",word)
-	fmt.Println(template)
+	template := fmt.Sprintf("<!-- BEGIN -->\n%v<!-- END -->", word)
 	return template
 }
