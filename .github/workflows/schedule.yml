@@ -30,7 +30,7 @@ jobs:
           git config --local user.email "1191430240@qq.com"
           git config --local user.name "ToWeLong"
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git pull --rebase
+          git pull
           go run app.go
           git add .
           git commit -m "update by github action"
