@@ -11,7 +11,7 @@ import (
 func CreateReadMe(data []model.Question) {
 	fileName := "README.md"
 	if file, err := ioutil.ReadFile(fileName); err == nil {
-		reg := regexp.MustCompile(`<!-- BEGIN -->[\S\s]*<!-- END -->`)
+		reg,_ := regexp.Compile(`<!-- BEGIN -->[\S\s]+<!-- END -->`)
 		allString := reg.ReplaceAllString(string(file), CreateList(data))
 		fmt.Println(CreateList(data))
 		if writeFile, err := os.OpenFile(fileName, os.O_CREATE|os.O_WRONLY, os.ModePerm); err == nil {
