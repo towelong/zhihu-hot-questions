@@ -3,12 +3,12 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"go-weather-email/model"
-	"go-weather-email/utils"
 	"io/ioutil"
 	"net/http"
 	"os"
 	"time"
+	"zhihu-hot-questions/model"
+	"zhihu-hot-questions/utils"
 )
 
 var fileName = time.Now().Format("2006-1-2")

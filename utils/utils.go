@@ -2,10 +2,10 @@ package utils
 
 import (
 	"fmt"
-	"go-weather-email/model"
 	"io/ioutil"
 	"os"
 	"regexp"
+	"zhihu-hot-questions/model"
 )
 
 func CreateReadMe(data []model.Question) {

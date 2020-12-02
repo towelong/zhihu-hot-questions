@@ -30,4 +30,4 @@ jobs:
       - name: Test Go Application
           run: |
             go version
-            go text go-weather-email/test
+            go text zhihu-hot-questions/test
