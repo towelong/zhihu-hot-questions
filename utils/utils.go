@@ -13,13 +13,13 @@ func CreateReadMe(data []model.Question) {
 	fileName := "README.md"
 	if file, err := ioutil.ReadFile(fileName); err == nil {
 		reg,_ := regexp.Compile(`<!-- BEGIN -->[\W\w]*<!-- END -->`)
-		allString := reg.ReplaceAll(file, []byte(CreateList(data)))
-		log.Fatalln(string(allString))
-		if writeFile, err := os.OpenFile(fileName, os.O_WRONLY, os.ModePerm); err == nil {
+		allString := reg.ReplaceAllString(string(file),CreateList(data))
+		if writeFile, err := os.OpenFile(fileName, os.O_CREATE|os.O_WRONLY, os.ModePerm); err == nil {
 			defer writeFile.Close()
 			// 先清空再替换
-			writeFile.Write([]byte(""))
-			writeFile.Write(allString)
+			writeFile.WriteString("")
+			log.Fatalln(allString)
+			writeFile.WriteString(allString)
 		}
 	}
 }
@@ -39,6 +39,5 @@ func CreateList(data []model.Question) string {
 		word += fmt.Sprintf("1. [%v](%v)\n", v.Title, v.Url)
 	}
 	template := fmt.Sprintf("<!-- BEGIN -->\n\n%v\n<!-- END -->", word)
-	//fmt.Println(template)
 	return template
 }
