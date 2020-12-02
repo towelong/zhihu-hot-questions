@@ -28,6 +28,6 @@ jobs:
           go version
 
       - name: Test Go Application
-          run: |
-            go version
-            go text zhihu-hot-questions/test
+        run: |
+          go version
+          go text zhihu-hot-questions/test
