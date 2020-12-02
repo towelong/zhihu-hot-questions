@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
 
     env:
       TZ: Asia/Shanghai
@@ -25,10 +25,13 @@ jobs:
         run: |
           go mod download
 
-      - name: Run Go App
+      - name: Set git remote
         run: |
           git config --local user.email "1191430240@qq.com"
           git config --local user.name "ToWeLong"
+
+      - name: run Go
+        run: |
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git pull --rebase
           go run app.go
