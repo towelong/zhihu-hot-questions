@@ -23,11 +23,19 @@ jobs:
           go-version: 1.15
         id: go
 
-      - name: Log Go version
-        run: |
-          go version
-
       - name: Test Go Application
         run: |
           go version
           go test zhihu-hot-questions/test
+
+      - name: Complete App
+        run: |
+          git config --local user.email "1191430240@qq.com"
+          git config --local user.name "ToWeLong"
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git pull --rebase
+          go mod download
+          go run app.go
+          git add .
+          git commit -m "update by github action"
+          git push
