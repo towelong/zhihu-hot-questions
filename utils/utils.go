@@ -16,7 +16,7 @@ func CreateReadMe(data []model.Question) {
 		if writeFile, err := os.OpenFile(fileName, os.O_CREATE|os.O_WRONLY, os.ModePerm); err == nil {
 			defer writeFile.Close()
 			// 先清空再替换
-			writeFile.WriteString("")
+			writeFile.Write([]byte(""))
 			fmt.Println(allString)
 			writeFile.WriteString(allString)
 		}
