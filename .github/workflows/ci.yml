@@ -26,3 +26,8 @@ jobs:
       - name: Log Go version
         run: |
           go version
+
+      - name: Test Go Application
+          run: |
+            go version
+            go text go-weather-email/test
