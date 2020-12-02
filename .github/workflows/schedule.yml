@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
 
     env:
       TZ: Asia/Shanghai
@@ -21,7 +21,7 @@ jobs:
           go-version: 1.15
         id: go
 
-      - name: download module
+      - name: Download module
         run: |
           go mod download
 
