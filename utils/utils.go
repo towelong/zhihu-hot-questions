@@ -3,7 +3,6 @@ package utils
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 	"regexp"
 	"zhihu-hot-questions/model"
@@ -18,7 +17,7 @@ func CreateReadMe(data []model.Question) {
 			defer writeFile.Close()
 			// 先清空再替换
 			writeFile.WriteString("")
-			log.Fatalln(allString)
+			fmt.Println(allString)
 			writeFile.WriteString(allString)
 		}
 	}
