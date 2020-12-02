@@ -21,19 +21,13 @@ jobs:
           go-version: 1.15
         id: go
 
-      - name: Download module
-        run: |
-          go mod download
-
-      - name: Set git remote
+      - name: Complete App
         run: |
           git config --local user.email "1191430240@qq.com"
           git config --local user.name "ToWeLong"
-
-      - name: run Go
-        run: |
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git pull --rebase
+          go mod download
           go run app.go
           git add .
           git commit -m "update by github action"
