@@ -12,13 +12,10 @@ func CreateReadMe(data []model.Question) {
 	fileName := "README.md"
 	if file, err := ioutil.ReadFile(fileName); err == nil {
 		reg,_ := regexp.Compile(`<!-- BEGIN -->[\W\w]*<!-- END -->`)
-		allString := reg.ReplaceAllString(string(file),CreateList(data))
-		if writeFile, err := os.OpenFile(fileName, os.O_CREATE|os.O_WRONLY, os.ModePerm); err == nil {
-			defer writeFile.Close()
-			// 先清空再替换
-			writeFile.Write([]byte(""))
-			fmt.Println(allString)
-			writeFile.WriteString(allString)
+		allString := reg.ReplaceAll(file,[]byte(CreateList(data)))
+		if err := ioutil.WriteFile(fileName, allString, os.ModePerm);err != nil {
+			fmt.Println("README写入错误")
+			fmt.Println(err)
 		}
 	}
 }
